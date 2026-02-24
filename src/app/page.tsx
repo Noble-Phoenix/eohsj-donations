@@ -1,25 +1,23 @@
-'use client';
-
 import Image from 'next/image';
 import { Header, Footer, Section } from '@/components/layout';
 import { Hero, StatisticsSection, Carousel, NewsGrid } from '@/components/sections';
 import { FloatingDonateButton } from '@/components/common';
 import { classroomSlides } from '@/data/carouselSlides';
 import { testimonialItems } from '@/data/testimonialItems';
+import { getDonationPage } from '@/lib/cms/queries';
+import { adaptDonationPage, defaultDonationPageProps } from '@/lib/cms/adapters/donation';
 
-export default function Home() {
-  const handleDonateClick = () => {
-    console.log('Donate button clicked');
-    // TODO: Implement donation flow
-  };
+export default async function Home() {
+  const doc = await getDonationPage();
+  const cms = doc ? adaptDonationPage(doc) : defaultDonationPageProps;
 
   return (
     <div className="flex flex-col min-h-screen bg-amber-50">
-      <Header onDonateClick={handleDonateClick} />
+      <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <Hero />
+        <Hero title={cms.hero.title} />
 
         {/* Statistics Section */}
         <StatisticsSection />
@@ -69,7 +67,7 @@ export default function Home() {
             {/* Yellow box with quote text */}
             <div className="absolute right-0 bottom-0 bg-amber-400 rounded-tr-[32px] rounded-bl-[32px] p-8 max-w-2xl">
               <p className="text-red-950 text-2xl font-normal leading-8">
-                "We are called to build a future of hope and a future of peace. In a special way that future depends on the continued well-being of our Christian families and most especially on the education of their children."
+                &ldquo;We are called to build a future of hope and a future of peace. In a special way that future depends on the continued well-being of our Christian families and most especially on the education of their children.&rdquo;
               </p>
             </div>
           </div>
@@ -84,10 +82,10 @@ export default function Home() {
         <Section theme="white" className="flex justify-center py-28">
           <div className="bg-white rounded-tl-2xl rounded-br-2xl border-8 border-amber-400 p-12 max-w-2xl text-center">
             <h2 className="text-5xl font-cinzel text-red-900 font-bold leading-[48px] mb-12">
-              Ready to ensure a child's future?
+              Ready to ensure a child&apos;s future?
             </h2>
             <button className="w-full bg-red-700 text-white text-2xl font-bold py-5 rounded-2xl hover:bg-red-800 transition-all">
-              Donate Now
+              {cms.cta.label}
             </button>
           </div>
         </Section>
@@ -108,7 +106,7 @@ export default function Home() {
       <Footer />
 
       {/* Floating Donate Button */}
-      <FloatingDonateButton onDonateClick={handleDonateClick} />
+      <FloatingDonateButton />
     </div>
   );
 }
