@@ -1,9 +1,9 @@
 import React from 'react';
 import { cn } from '@/lib/classNames';
 
-interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ContactProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
+const Contact = React.forwardRef<HTMLDivElement, ContactProps>(
   ({ className, ...props }, ref) => {
     return (
       <footer ref={ref} className={cn('bg-zinc-900 w-full', className)} {...props}>
@@ -13,7 +13,7 @@ const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
             <h2 className="text-white text-lg font-normal leading-7 uppercase">GET IN CONTACT WITH US</h2>
 
             {/* Contact Info */}
-            <div className="inline-flex justify-center items-center gap-24">
+            <div className="inline-flex justify-center items-center gap-12 md:gap-24 flex-col md:flex-row">
               {/* Phone */}
               <div className="space-y-4">
                 <h3 className="text-white text-4xl font-cinzel leading-10">Phone</h3>
@@ -42,6 +42,6 @@ const Footer = React.forwardRef<HTMLDivElement, FooterProps>(
   }
 );
 
-Footer.displayName = 'Footer';
+Contact.displayName = 'Contact';
 
-export default Footer;
+export default Contact;

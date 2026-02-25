@@ -25,7 +25,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
   const isLeft = currentSlide % 2 === 0;
 
   return (
-    <div className="relative">
+    <div className="relative max-md:-mx-24 max-md:w-screen">
       <Image
         src={slide.imageUrl}
         alt={slide.altText}

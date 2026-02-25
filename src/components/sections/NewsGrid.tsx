@@ -7,9 +7,9 @@ interface NewsGridProps {
 
 export default function NewsGrid({ items }: NewsGridProps) {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
       {items.map((item) => (
-        <div key={item.id} className="h-64 bg-gray-200 rounded-2xl flex flex-col justify-end p-9 overflow-hidden relative group">
+        <div key={item.id} className="h-82 md:h-64 bg-gray-200 rounded-2xl flex flex-col justify-end p-9 overflow-hidden relative group">
           {item.type === 'video' ? (
             <iframe
               src={item.videoUrl}

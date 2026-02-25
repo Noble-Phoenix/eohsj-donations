@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Header, Footer, Section } from '@/components/layout';
+import { Header, Contact, Section } from '@/components/layout';
 import { Hero, StatisticsSection, Carousel, NewsGrid } from '@/components/sections';
 import { FloatingDonateButton } from '@/components/common';
 import { classroomSlides } from '@/data/carouselSlides';
@@ -80,6 +80,8 @@ export default function Home() {
           <NewsGrid items={testimonialItems} />
         </Section>
 
+      <Contact />
+
         {/* Final CTA Section */}
         <Section theme="white" className="flex justify-center py-28">
           <div className="bg-white rounded-tl-2xl rounded-br-2xl border-8 border-amber-400 p-12 max-w-2xl text-center">
@@ -104,8 +106,6 @@ export default function Home() {
           </button>
         </Section>
       </main>
-
-      <Footer />
 
       {/* Floating Donate Button */}
       <FloatingDonateButton onDonateClick={handleDonateClick} />

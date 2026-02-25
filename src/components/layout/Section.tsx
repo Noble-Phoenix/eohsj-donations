@@ -44,7 +44,7 @@ const Section: React.FC<SectionProps> = ({
           </h2>
         )}
         {subtitle && (
-          <h3 className={cn('text-4xl font-cinzel leading-10 mb-12 max-w-4xl', titleColor)}>
+          <h3 className={cn('text-4xl font-cinzel leading-10 mb-12 max-w-4xl mx-auto', titleColor)}>
             {subtitle}
           </h3>
         )}

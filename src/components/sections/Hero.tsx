@@ -16,15 +16,15 @@ const Hero = React.forwardRef<HTMLDivElement>(({}, ref) => {
   return (
     <>
       {/* Red Hero Banner */}
-      <div className="bg-red-900/70 p-16 bg-[url(//placehold.co/1400x500)] flex justify-center items-center">
-        <div className="w-1/2 flex items-center text-center">
+      <div className="bg-red-900/70 p-16 bg-[url(//placehold.co/1400x500)] flex justify-center max-md:flex-wrap items-center">
+        <div className="w-full md:w-1/2 flex items-center text-center max-md:mb-12">
           <h1 className="text-5xl font-bold text-white leading-[48px]">
             Ensuring the future of the schools of the Latin Patriarchate
           </h1>
         </div>
 
         {/* Donation Form Box */}
-        <div className="w-1/2 flex justify-end px-4 sm:px-6 lg:px-8">
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end lg:px-8">
           <DonationForm
             amounts={DONATION_AMOUNTS}
             selectedAmount={selectedAmount}
